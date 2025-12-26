@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html>
+<style>
+  /* This is the css */
+  @font-face {
+    font-family: SVN-Beast;
+    src: url('SVN-Beast.ttf');
+  }
+
+  @font-face {
+    font-family: SVN-Merge;
+    src: url('SVN-Merge Bold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: CASTELAR;
+    src: url('CASTELAR.TTF');
+  }
+
+  @font-face {
+    font-family: SVN-Androgyne;
+    src: url('SVN-Androgyne.ttf');
+  }
+
+  html {
+    background-color: #1e1e1e;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    object-fit: fill;
+    padding: 0px;
+    border: 0px;
+    color: rgb(231, 231, 231);
+  }
+
+  .divide {
+    z-index: -20;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: fit-content;
+    background-color: rgba(0, 0, 0, 0.345);
+    display: flex;
+  }
+
+
+  .nav a {
+    border-radius: 35px;
+    padding-left: 2mm;
+    padding-right: 2mm;
+    padding-top: 2mm;
+    height: 30.400px;
+    text-decoration: none;
+    text-align: center;
+    width: 10%;
+    color: grey;
+    background-color: rgba(0, 0, 0, 0);
+    font-weight: bold;
+    font-family: sans-serif;
+    transition: 0.4s;
+  }
+
+  #dang {
+    margin-left: auto
+  }
+
+  .nav a:hover {
+    color: white;
+    background-color: rgba(155, 155, 155, 0.7);
+  }
+
+  h1 {
+    z-index: -1;
+    position: relative;
+    height: 25mm;
+    margin-left: 1cm;
+    margin-top: 1px;
+  }
+
+  pre {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+
+  a {
+    font-size: 20px;
+  }
+
+  a:hover {
+    color: blue;
+  }
+
+  a:active {
+    color: rgb(243, 84, 84);
+  }
+
+
+  #sea {
+    top: 0%;
+    min-height: 100%;
+    min-width: 100%;
+    height: 740px;
+    width: 100%;
+    position: relative;
+    z-index: -1;
+    object-fit: fill;
+  }
+
+  /* body */
+  #dive {
+    top: -1px;
+    height: 100%;
+    width: 100%;
+    z-index: -40;
+    position: sticky;
+    pointer-events: none;
+  }
+
+  #burb {
+
+    top: 400px;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: -14;
+
+  }
+
+
+  .how {
+    mask-image:
+      linear-gradient(to bottom, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 1) 80%, rgba(255, 255, 255, 0) 100%);
+    text-align: center;
+    z-index: 4;
+    font-family: SVN-Androgyne;
+    font-size: 70px;
+    position: absolute;
+    top: 300px;
+    left: 20px;
+    right: 0;
+    width: 1400px;
+    height: 80px;
+    /* show one line at a time */
+    overflow: hidden;
+  }
+
+  .how span {
+    left: 25vw;
+    position: absolute;
+    display: block;
+    /* important */
+    white-space: pre-line;
+    /* preserve line breaks */
+    cursor: pointer;
+    transition: transform 0.5s ease;
+    line-height: 1;
+  }
+
+  .how span::after {
+    top: 0;
+    left: 0px;
+    position: absolute;
+    z-index: -2;
+    content: attr(data-text);
+    display: block;
+    /* important */
+    white-space: pre-line;
+    line-height: 1;
+    filter: blur(4px);
+  }
+
+
+
+
+  #angler {
+    transform-origin: center center;
+    cursor: pointer;
+    pointer-events: auto;
+    top: 20%;
+    opacity: 1;
+    height: 100px;
+    width: 100px;
+    z-index: 11;
+    position: absolute;
+  }
+
+  .sardine {
+    transform-origin: center center;
+    cursor: pointer;
+    pointer-events: auto;
+    top: 20%;
+    opacity: 1;
+    height: 100px;
+    width: 100px;
+    z-index: 10;
+    position: absolute;
+  }
+
+  #bubles {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+  }
+
+  #dragon {
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    position: relative;
+  }
+
+
+
+  .starter {
+
+    margin-bottom: 0px;
+    margin-left: 80px;
+    font-family: SVN-Merge;
+  }
+
+  .starter1 {
+
+    font-size: 20px;
+    padding: 0;
+    margin-bottom: 0px;
+    margin-left: 20px;
+    font-family: SVN-Merge;
+  }
+
+  .start {
+    opacity: 0;
+    transition: 5s ease;
+    margin: 1px;
+    font-family: SVN-Merge;
+  }
+
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+  h2 {
+    transform-origin: center center;
+  }
+
+
+  /* content section */
+  .gallery-theater {
+    mask-image:
+      linear-gradient(to top,
+        rgba(255, 255, 255, 0) 20%,
+        rgba(255, 255, 255, 1) 30%);
+    pointer-events: none;
+    z-index: 3;
+    opacity: 1;
+    pointer-events: none;
+    position: absolute;
+    top: 1270px;
+    left: -40px;
+    width: 105%;
+    height: calc(1080px * 0.5);
+    filter: brightness(0.5);
+  }
+
+
+  .gallery-title {
+    z-index: 11;
+    opacity: 0;
+    filter: brightness(1.5);
+    pointer-events: none;
+    position: absolute;
+    top: 620px;
+    width: calc(1920px * 0.5);
+    height: calc(1080px * 0.5);
+  }
+
+
+
+  .gallery {
+    display: flex;
+    top: 900px;
+    position: relative;
+    width: 100%;
+    height: 200px;
+    z-index: 100;
+  }
+
+  /* personal my ass */
+
+  .storytitle {
+    pointer-events: none;
+    z-index: 14;
+    opacity: 1;
+    pointer-events: none;
+    position: absolute;
+    top: 1490px;
+    left: 330px;
+    width: calc(1920px * 0.5);
+    height: calc(1080px * 0.5);
+  }
+
+  .storymaster {
+    z-index: 3;
+    mask-image:
+      linear-gradient(to top,
+        rgba(255, 255, 255, 0) 5%,
+        rgba(255, 255, 255, 1) 10%);
+    mask-composite: intersect;
+    -webkit-mask-composite: intersect;
+    z-index: 10;
+
+    -webkit-font-smoothing: antialiased;
+    top: 1550px;
+    position: relative;
+    width: 100%;
+    height: 900px;
+    margin: 0%;
+    padding: 0%;
+  }
+
+  .storytheater {
+    pointer-events: none;
+    top: 20px;
+    position: absolute;
+    width: 100%;
+    height: 960px;
+    margin: 0%;
+    padding: 0%;
+    z-index: 2;
+  }
+
+
+  .chapter {
+    color: white;
+    font-family: CASTELAR;
+    width: 250px;
+    height: 200px;
+    position: absolute;
+    z-index: 5;
+    font-weight: bold;
+    font-size: 40px;
+    background-color: transparent;
+    top: 12px;
+    left: 43vw;
+    border: none;
+    cursor: pointer;
+  }
+
+  .chapter:hover {
+    filter: blur(2px);
+
+  }
+
+  .curtain {
+    pointer-events: none;
+    top: 20px;
+    position: absolute;
+    width: 100%;
+    height: 960px;
+    margin: 0%;
+    padding: 0%;
+    z-index: 2;
+
+  }
+
+  .left {
+    transform-origin: left;
+    z-index: 2;
+    left: 84px;
+    top: 95px;
+    position: absolute;
+    height: 840px;
+    width: 45%;
+    transition: transform 1s ease-in-out;
+  }
+
+  .right {
+    transform-origin: right;
+    right: 114px;
+    top: 185px;
+    position: absolute;
+    height: 679px;
+    width: 45%;
+    transition: transform 1s ease;
+  }
+
+  .curtain.open .left {
+    pointer-events: none;
+    transform: scaleX(0);
+  }
+
+  .curtain.open .right {
+    pointer-events: none;
+    transform: scaleX(0);
+  }
+
+
+
+  .gayassstory {
+    top: 250px;
+    mask-image:
+      linear-gradient(to top,
+        rgba(255, 255, 255, 0) 5%,
+        rgba(255, 255, 255, 1) 10%),
+      linear-gradient(to bottom,
+        rgba(255, 255, 255, 0) 5%,
+        rgba(255, 255, 255, 1) 10%);
+    mask-composite: intersect;
+    -webkit-mask-composite: intersect;
+
+    -webkit-font-smoothing: antialiased;
+
+    box-sizing: border-box;
+    outline-width: 1px;
+
+    display: flex;
+    position: relative;
+
+    left: 50%;
+    translate: -50% 0;
+
+    width: 70%;
+    height: 800px;
+
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    align-content: stretch;
+
+    border-left: 50px gray;
+    border-right: 50px gray;
+    border-style: groove;
+    overflow: hidden;
+    object-fit: contain;
+    filter: blur(0.4px);
+  }
+
+
+  .sobstory {
+    padding: 0;
+    overflow: scroll;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 42%;
+    height: 620px;
+    border-width: 10px;
+    border-color: white;
+    border-style: dotted;
+    white-space: pre-wrap;
+    filter: brightness(2000);
+    scrollbar-color: transparent;
+
+  }
+
+  .sobstory::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  pre {
+    border: none;
+    font-size: 25px;
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+    padding: 10px;
+    margin: 0;
+  }
+
+  .D2D {
+    mask-image:
+      linear-gradient(to top, rgba(255, 255, 255, 0)5%, rgba(255, 255, 255, 1)20%),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0)6%, rgba(255, 255, 255, 1)20%);
+    mask-repeat: no-repeat;
+    mask-composite: intersect;
+    position: relative;
+    overflow: scroll;
+    width: 50%;
+    height: 420px;
+    z-index: 3;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
+
+  .layers1 {
+    scroll-snap-align: start;
+    width: 100%;
+    height: 420px;
+    position: relative;
+  }
+
+
+  .D3D {
+    mask-image:
+      linear-gradient(to top, rgba(255, 255, 255, 0)5%, rgba(255, 255, 255, 1)20%),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0)6%, rgba(255, 255, 255, 1)20%);
+    mask-repeat: no-repeat;
+    mask-composite: intersect;
+    position: relative;
+    overflow: scroll;
+    width: 50%;
+    height: 420px;
+    z-index: 3;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
+
+  .layers2 {
+    scroll-snap-align: start;
+    width: 100%;
+    height: 420px;
+    position: relative;
+  }
+
+
+  .D2D::-webkit-scrollbar {
+    display: none;
+
+  }
+
+  .D3D::-webkit-scrollbar {
+    display: none;
+
+  }
+
+  .images {
+    mask-image:
+      linear-gradient(to bottom, rgba(255, 255, 255, 0)25%, rgba(255, 255, 255, 1)30%),
+      linear-gradient(to left, rgba(255, 255, 255, 0)25%, rgba(255, 255, 255, 1)30%),
+      linear-gradient(to top, rgba(255, 255, 255, 0)25%, rgba(255, 255, 255, 1)30%),
+      linear-gradient(to right, rgba(255, 255, 255, 0)25%, rgba(255, 255, 255, 1)30%);
+    mask-repeat: no-repeat;
+    mask-size: 230px 275px;
+    mask-position: 80px 195px;
+    mask-composite: intersect;
+    left: 380%;
+    top: -100px;
+    position: absolute;
+    z-index: 1;
+    filter: grayscale(100%) blur(2px);
+    opacity: var(--op);
+    width: 500px;
+    height: 500px;
+
+  }
+
+  .animborder {
+    top: 80px;
+    height: 300px;
+    width: 300px;
+    position: absolute;
+    z-index: 2;
+    left: 120px;
+    opacity: calc(var(--op) * 0.6);
+    filter: brightness(0.6) blur(1px);
+    transition: filter 0.2s ease;
+
+  }
+
+  :root {
+    --gap: 300px;
+    --dis: 253px;
+    --op: 0
+  }
+
+  /* image 1 */
+  .animborder1 {
+    left: calc(300px + var(--gap)*-0.8);
+
+  }
+
+  .image1 {
+    left: calc(var(--dis) + var(--gap)*-0.8);
+
+  }
+
+  .animborder1:hover+.image1 {
+    filter: grayscale(0%);
+  }
+
+  .animborder1:hover {
+    filter: brightness(20);
+  }
+
+  /* image 2 */
+  .animborder2 {
+    left: calc(300px + var(--gap)*0.2);
+  }
+
+  .image2 {
+    left: calc(var(--dis) + var(--gap)*0.2);
+  }
+
+
+  .animborder2:hover+.image2 {
+    filter: grayscale(0%);
+  }
+
+  .animborder2:hover {
+    filter: brightness(20);
+  }
+
+  /* image 3 */
+  .animborder3 {
+    left: calc(300px + var(--gap)*-0.8);
+  }
+
+  .image3 {
+    left: calc(var(--dis) + var(--gap)*-0.8);
+  }
+
+
+  .animborder3:hover+.image3 {
+    filter: grayscale(0%);
+  }
+
+  .animborder3:hover {
+    filter: brightness(20);
+  }
+
+  /* image 4 */
+  .animborder4 {
+    left: calc(300px + var(--gap)*0.2);
+  }
+
+  .image4 {
+    left: calc(var(--dis) + var(--gap)*0.2);
+  }
+
+
+  .animborder4:hover+.image4 {
+    filter: grayscale(0%);
+  }
+
+  .animborder4:hover {
+    filter: brightness(20);
+  }
+
+  /* menu layout */
+
+
+  .exit-menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 6;
+    background: none;
+    border: none;
+    font-size: 50px;
+    font-family: SVN-Merge Bold;
+    color: white;
+    cursor: pointer;
+
+  }
+
+  .exit-menu::after {
+    inset: 0;
+    content: "X";
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: inherit;
+    font-family: inherit;
+    color: white;
+    filter: blur(0px);
+    pointer-events: none;
+  }
+
+  .exit-menu:hover {
+    animation: exit 0.05s 4;
+  }
+
+
+
+
+
+
+  @keyframes exit {
+    0% {
+      transform: translate(-10px, 10px);
+    }
+
+    20% {
+      transform: translate(5px, 2px);
+    }
+
+    40% {
+      transform: translate(6px, -12px);
+    }
+
+    60% {
+      transform: translate(-25px, 5px);
+    }
+
+    80% {
+      transform: translate(9px, -8px);
+    }
+
+    100% {
+      transform: translate(-5px, 2px);
+    }
+  }
+
+
+  .exit-menu:hover::after {
+
+    filter: blur(3px);
+  }
+
+  @property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  .menun {
+    z-index: 3;
+    padding: 10px;
+    width: 850px;
+    height: 550px;
+    display: none;
+    grid-template-columns: auto auto;
+    position: fixed;
+    top: 50px;
+    left: 25vw;
+    z-index: 200;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: fadeIn1 1s ease;
+    animation-play-state: paused;
+  }
+
+  .menun.play {
+    animation-play-state: running;
+  }
+
+  .menun::after {
+    mask-image:
+      linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 5%, rgba(255, 255, 255, 0) 95%, rgba(255, 255, 255, 1) 100%),
+      linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 5%, rgba(255, 255, 255, 0) 95%, rgba(255, 255, 255, 1) 100%);
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    background: conic-gradient(from var(--gradient-angle),
+        rgba(255, 255, 255, 0.8) 0%,
+        rgba(0, 0, 0, 0) 25%,
+        rgba(255, 255, 255, 0.8) 50%,
+        rgba(0, 0, 0, 0) 75%,
+        rgba(255, 255, 255, 0.8)100%);
+    border-radius: inherit;
+    animation: rotate 10s linear infinite;
+    filter: blur(5px);
+    border-radius: 10px;
+
+  }
+
+  @keyframes fadeIn1 {
+    0% {
+      transform: translateX(-50vw);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateX(0vw);
+      opacity: 1;
+    }
+  }
+
+  @keyframes rotate {
+    from {
+      --gradient-angle: 0deg;
+
+    }
+
+    to {
+      --gradient-angle: 360deg;
+
+    }
+  }
+
+  .menun .menurow {
+    mask-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 1) 90%, rgba(255, 255, 255, 0) 100%),
+      linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 1) 90%, rgba(255, 255, 255, 0) 100%);
+    mask-composite: intersect;
+    width: inherit;
+    height: inherit;
+    position: relative;
+    object-fit: cover;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+
+  .extra {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-color: black;
+    transition: 0.2s;
+    mask-image: linear-gradient(to top, rgba(225, 225, 225, 1) 10%, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+    opacity: 0;
+    width: inherit;
+    height: inherit;
+    position: inherit;
+    z-index: 4;
+    color: white;
+    font-size: 20px;
+    font-family:'Courier New', Courier, monospace;
+    justify-content: center;
+    font-weight: lighter;
+    padding: 10px;
+
+
+  }
+
+
+  .menun:hover .extra {
+    opacity: 1;
+
+
+  }
+
+
+  .img-scroll {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    width: 100%;
+    height: 100%;
+    scrollbar-width: none;
+  }
+
+
+
+  .rightside {
+    position: absolute;
+    right: 1px;
+    background-color: white;
+    height: inherit;
+    width: 50px;
+    opacity: 0.2;
+    z-index: 5;
+    border: none;
+    filter: blur(1px);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 70px;
+    color: gray;
+    font-weight: bold;
+  }
+
+  .rightside:hover {
+    opacity: 0.8;
+  }
+
+  .leftside {
+    position: absolute;
+    left: 1px;
+    background-color: white;
+    height: inherit;
+    width: 50px;
+    opacity: 0.2;
+    z-index: 5;
+    border: none;
+    filter: blur(1px);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 70px;
+    color: gray;
+    font-weight: bold;
+  }
+
+  .leftside:hover {
+    opacity: 0.8;
+  }
+
+
+
+
+
+
+  /* overall gallery*/
+
+
+  .gallery-title.play {
+    animation: summon2 2s ease forwards;
+  }
+
+  .animborder1.play {
+    animation: summon1 2s ease forwards,
+      float 6s ease-in-out infinite;
+
+  }
+
+  .animborder2.play {
+    animation: summon1 2s ease forwards,
+      float1 5s ease-in-out infinite;
+
+  }
+
+  .animborder3.play {
+    animation: summon1 2s ease forwards,
+      float2 7s ease-in-out infinite;
+
+  }
+
+  .animborder4.play {
+    animation: summon1 2s ease forwards,
+      float3 4s ease-in-out infinite;
+
+  }
+
+  .image1.play {
+    animation: summon 2s ease forwards,
+      float 6s ease-in-out infinite;
+  }
+
+  .image2.play {
+    animation: summon 2s ease forwards,
+      float1 5s ease-in-out infinite;
+  }
+
+  .image3.play {
+    animation: summon 2s ease forwards,
+      float2 7s ease-in-out infinite;
+  }
+
+  .image4.play {
+    animation: summon 2s ease forwards,
+      float3 4s ease-in-out infinite;
+  }
+
+  #circle {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    opacity: 0.4;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.05s linear;
+    left: 0;
+    top: 0;
+    filter: blur(20px);
+    pointer-events: none;
+
+  }
+
+
+
+  /* move */
+  @keyframes move {
+    0% {
+      transform: translateY(-100px)
+    }
+
+    100% {
+      transform: translateY(-800px)
+    }
+
+  }
+
+  /* floating */
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-30px);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float1 {
+    0% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(50px);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float2 {
+    0% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-40px);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float3 {
+    0% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(30px);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+
+  /* other animation */
+  @keyframes fadeIn {
+    from {
+      scale: -1, 1;
+      opacity: 0;
+      transform: translateX(-450px) scale(0.5, 0.5);
+    }
+
+    to {
+      scale: -1, 1;
+      opacity: 1;
+      transform: translateX(0px) scale(1, 1);
+    }
+  }
+
+  @keyframes work {
+    from {
+      opacity: 1;
+      transform: translateX(450px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(10px);
+    }
+
+  }
+
+  /* appear gallery */
+  @keyframes summon {
+    from {
+      transform: translateY(-90px);
+      opacity: calc(var(--op) + 0);
+    }
+
+    to {
+      transform: translateY();
+      opacity: calc(var(--op) + 0.8);
+    }
+  }
+
+  @keyframes summon1 {
+    from {
+      transform: translateY(-90px);
+      opacity: calc(var(--op) + 0);
+    }
+
+    to {
+      transform: translateY();
+      opacity: calc(var(--op) + 0.9);
+    }
+  }
+
+  @keyframes summon2 {
+    from {
+      transform: translateX(-90px);
+      opacity: calc(var(--op) + 0);
+    }
+
+    to {
+      transform: translateX();
+      opacity: calc(var(--op) + 0.9);
+    }
+  }
+
+
+  .swam {
+    animation: work 8.5s linear forwards;
+  }
+</style>
+
+
+<head>
+  <title>This is for tesing dumb#ss</title>
+  <meta name="graphic" content="arts">
+
+</head>
+
+<body style="margin: 0%;">
+  <div class="nav">
+    <!-- This is the menu bar -->
+    <a class="menu" href="contact.html">contacts</a>
+    <a class="menu" href="price.html">prices</a>
+    <a id="dang" onclick="myFunction()">Pause</a>
+  </div>
+
+  <!-- mouse effect -->
+  <div id="circle"></div>
+  <div style="z-index: -90;position: absolute;top: 0px;">
+    <!-- THE SEA (surface) -->
+    <video loop muted autoplay id="sea">
+      <source src="C:\Users\Admin\Documents\html\home.html\Comp 2.webm" type="video/webm">
+      what the sigma!!!
+    </video>
+    <div style="position: absolute;z-index: -1000;height: 3400px;width: 100%;background-color: black;">
+
+    </div>
+
+    <div
+      style="position: relative;min-height: 3000px;width: 100%;top: -4px;z-index: -12;margin: 0%;padding: 0%;border:0;">
+      <!-- underwater -->
+      <div class="how">
+
+        <span data-text="Hows your day?
+          Is it a good one?
+          If so, happy for you!
+          If not, you'll push through it!
+          I know you will!">Hows your day?
+          Is it a good one?
+          If so, happy for you!
+          If not, you'll push through it!
+          I know you will!
+        </span>
+      </div>
+      <div class="divide" id="division 2"></div>
+
+      <video loop muted id="angler" preload="metadata">
+        <source src="C:\Users\Admin\Documents\html\home.html\angler_fish.webm" type="video/webm">
+      </video>
+      <video src="artwork_1.webm" class="gallery-title" loop muted autoplay preload="metadata"></video>
+      <!-- menu -->
+      <div class="menun" id="menu1">
+        <button class="exit-menu">X</button>
+        <img src="Perfect.png" class="menurow">
+        <div class="extra">Made in Blender, all of the assets are created and owned by me.</div>
+
+      </div>
+
+      <div class="menun" id="menu2">
+        <button class="exit-menu">X</button>
+        <button class="rightside">></button>
+        <button class="leftside"><</button>
+            <div class="img-scroll">
+              <img src="Lilith blade 01.png" class="menurow">
+              <img src="cooked_.png" class="menurow">
+            </div>
+            <div class="extra">Made in Blender,Substance painter; all of the assets are created and owned by me.</div>
+      </div>
+      <div class="menun" id="menu3">
+        <button class="exit-menu">X</button>
+        <button class="rightside">></button>
+        <button class="leftside"><</button>
+            <div class="img-scroll">
+              <img src="m4a1.png" class="menurow">
+              <img src="m4a1_close.png" class="menurow">
+            </div>
+            <div class="extra">Made in Blender, all of the assets are created and owned by me.</div>
+
+
+      </div>
+      <div class="menun" id="menu4">
+        <button class="exit-menu">X</button>
+        <img src="MY EYES.png" class="menurow">
+        <div class="extra">Made in Blender, all of the assets are created and owned by me.</div>
+
+      </div>
+      <div class="menun" id="menu5">
+        <button class="exit-menu">X</button>
+        <button class="rightside">></button>
+        <button class="leftside"><</button>
+            <div class="img-scroll">
+              <img src="real!_.png" class="menurow">
+              <img src="real_nog1.png" class="menurow">
+            </div>
+            <div class="extra">A little thanks to Poly Haven for some textures, the skybox is made procedurally by me.</div>
+
+
+      </div>
+      <div class="menun" id="menu7">
+        <button class="exit-menu">X</button>
+        <img src="desert.png" class="menurow">
+        <div class="extra">Made in Adobe Illus, animated in Adobe AE.</div>
+
+      </div>
+      <div class="menun" id="menu8">
+        <button class="exit-menu">X</button>
+        <img src="mount.png" class="menurow">
+        <div class="extra">Made in Adobe Illus, animated in Adobe AE.</div>
+
+      </div>
+      <div class="menun" id="menu9">
+        <button class="exit-menu">X</button>
+        <button class="rightside">></button>
+        <button class="leftside"><</button>
+            <div class="img-scroll">
+              <img src="galaxy.png" class="menurow">
+              <img src="crash.png" class="menurow">
+              <img src="Msurface.png" class="menurow">
+            </div>
+            <div class="extra">A little thanks to Poly Haven for some textures, the skybox is made procedurally by me.</div>
+
+
+      </div>
+      <div class="menun" id="menu10">
+        <button class="exit-menu">X</button>
+        <button class="rightside">></button>
+        <button class="leftside"><</button>
+            <div class="img-scroll">
+              <img src="beach_day.png" class="menurow">
+              <img src="beach_night.png" class="menurow">
+            </div>
+            <div class="extra">A little thanks to Poly Haven for some textures, the skybox is made procedurally by me.</div>
+
+
+      </div>
+      <div class="gallery">
+        <div class="D2D">
+          <div class="layers1">
+            <video src="border_3.webm" class="animborder animborder2" id="lilith" muted preload="metadata"></video>
+            <img src="cooked_.png" class="images image2">
+            <video src="border_3.webm" class="animborder animborder1" id="perfect" muted preload="metadata"></video>
+            <img src="Perfect.png" class="images image1">
+          </div>
+
+          <div class="layers1">
+            <video src="border_3.webm" class="animborder animborder2" id="gun" muted preload="metadata"></video>
+            <img src="m4a1.png" class="images image2">
+            <video src="border_3.webm" class="animborder animborder1" id="space" muted preload="metadata"></video>
+            <img src="MY EYES.png" class="images image1">
+          </div>
+          <div class="layers1">
+            <video src="border_3.webm" class="animborder animborder2" id="stars" preload="metadata"></video>
+            <img src="real!_.png" class="images image2">
+            <video src="border_3.webm" class="animborder animborder1" muted preload="metadata"></video>
+            <img src="c:\Users\Admin\Pictures\artwork\lake of titan.png" class="images" class="image1">
+          </div>
+        </div>
+        <div class="D3D">
+          <div class="layers2">
+            <video src="border_3.webm" class="animborder animborder3" id="desert"muted preload="metadata"></video>
+            <img src="desert.png" class="images image3">
+            <video src="border_3.webm" class="animborder animborder4" id="mount"muted preload="metadata"></video>
+            <img src="mount.png" class="images image4">
+          </div>
+          <div class="layers2">
+            <video src="border_3.webm" class="animborder animborder3" id="beach"muted preload="metadata"></video>
+            <img src="beach_day.png" class="images image3">
+            <video src="border_3.webm" class="animborder animborder4" id="galaxy"muted preload="metadata"></video>
+            <img src="galaxy.png" class="images image4">
+          </div>
+          <div class="layers2">
+            <video src="border_3.webm" class="animborder animborder3" muted preload="metadata"></video>
+            <img src="c:\Users\Admin\Pictures\artwork\lake of titan.png" class="images image3">
+            <video src="border_3.webm" class="animborder animborder4" muted preload="metadata"></video>
+            <img src="c:\Users\Admin\Pictures\artwork\lake of titan.png" class="images image4">
+          </div>
+        </div>
+      </div>
+      <video muted loop autoplay class="gallery-theater" preload="metadata">
+        <source src="gallerytheater.webm" type="video/webm">
+      </video>
+      <video muted loop autoplay class="storytitle" preload="metadata">
+        <source src="title section2_1.webm" type="video/webm">
+      </video>
+      <div class="storymaster">
+        <button class="chapter" type="button">Chapter 1</button>
+        <div class="curtain">
+          <img src="curtain2.png" class="left">
+          <img src="curtain.png" class="right">
+        </div>
+        <img rel="preload" src="storybaby.png" type="image/png" class="storytheater">
+        <div class="gayassstory">
+
+          <div class="sobstory">
+            <pre>
+General information about … me!:
+<span style="font-size: 16px;color: gray;">
+- GravusWorkshop is the brand name and currently a one-man show (run by me).
+- I prefer not to reveal my real name, you can call me "Miles".
+- I am 18 by the time I am done with designing this portfolio (2025)
+- Currently(2025), I am a first year student in FPT Uni located in Hòa Lạc, Hanoi.
+- I live away from my family and occasionally comes home to meet them.
+</span>
+- Interesting fact:
+<span style="font-size: 16px;color: gray;">
++ I can play the piano(I have played for 2 years when I write this).
++ I can play the erhu as well.
++ I am a bilingual:
+*Vietnamese
+*English(7.5 Ielts)
+*Chinese(HSK 2, not fluent)
++ I have travelled to 5 foreign countries:
+*Korea
+*Singapore
+*Malaysia
+*Japan
+*ThaiLand
++ I am compassionate(described by my peers, maybe you can check that out yourself)
++ I enjoy meeting new people.
++ I like technology and how they can be implemented into my workflow and my personal life.
++ My personality type is "INFP".
++ I enjoy trying out new experiences as long as they are meaningful.
+</span>
+</pre>
+          </div>
+          <div class="sobstory">
+            <pre>
+My profession related information:
+<span style="font-size: 16px;color: gray;">
+- I am capable of front-end web design (Ui/Ux)
++ This website is made from scratch using html, css and Js along with some helps from Ai(for debugging purposes)
+- I am knowledgeable with motion design, graphic design along with their nuances.(I can take on most task related to designing)
+- My main speciality is 3D design with most of my works you have seen above.
+- I have been studying in graphic design field for a long time:
++ My research started when I was 15. I began freelancing for a year afterwards.
++ At 16 I was forced to quit due to several reasons.
++ Have been studying/improving more since then.
+</span>
+- My goal:
+<span style="font-size: 16px;color: gray;">
++Aim to inspire others, not just those who wants get into the industry but for many young people who are trying to reach their dreams. 
++ While that being my main purpose for myself, I would still desire the happiness of people around me, those who are willing to care about my existence.
+</span>
+- Desire position/salary:
+<span style="font-size: 16px;color: gray;">
++ Currently, I don't mind being an intern as long as I can study new things.
++ 1000$ to 1500$ per month is acceptable.
+</span>
+
+
+
+</pre>
+          </div>
+        </div>
+      </div>
+      <video id="bubles" src="C:\Users\Admin\Documents\html\home.html\bubles.webm" playsinline preload="auto"
+        muted></video>
+      <video class="sardine" src="C:\Users\Admin\Documents\html\home.html\sardine.webm" loop muted autoplay
+        preload="metadata"></video>
+      <video class="sardine" src="C:\Users\Admin\Documents\html\home.html\sardine.webm" loop muted autoplay
+        preload="metadata"></video>
+      <video class="sardine" src="C:\Users\Admin\Documents\html\home.html\sardine.webm" loop muted au toplay
+        preload="metadata"></video>
+      <video loop muted class="sardine">
+        <source src="C:\Users\Admin\Documents\html\home.html\sardine.webm" type="video/webm">
+      </video>
+
+
+      <video muted loop id="burb">
+        <source src="Comp 1_3.webm" type="video/webm">
+        <!-- what the sigma!!! -->
+      </video>
+
+
+
+
+
+    </div>
+    <div
+      style="position: absolute;min-height: 3000px;width: 100%;top: 736px;z-index: -14;margin: 0%;padding: 0%;border:0;pointer-events: none;">
+
+
+      <video muted playsinline id="dive">
+        <source src="C:\Users\Admin\Documents\html\home.html\fishes.mp4" type="video/mp4">
+        <!-- what the sigma!!! -->
+      </video>
+
+
+
+
+
+    </div>
+
+
+
+    <div style="width: 100%;">
+      <video muted loop autoplay rel="preload" id="dragon">
+        <source src="kingdom_1.mp4" type="video/mp4">
+        what the sigma!!!
+      </video>
+
+    </div>
+
+
+  </div>
+  </div>
+
+  <div style="margin-top: 10%;">
+
+    <!-- this is the main content -->
+    <h1
+      style="font-weight:800;font-size: 35px;color: rgb(255, 255, 255) ;left: 20px;bottom: -70px;font-family: SVN-Beast;letter-spacing: 2px;"
+      class="starter1"> Miller Carl,</h1>
+    <h1 style="font-weight:800;font-size: 75px;color: rgb(255, 255, 255) ;" class="starter"> Welcome,</h1>
+    <h1 style="font-size: 40px ;margin-left: 2cm;height: 50px;" class="starter1">To my humble gallery</h1>
+    <h2 style="margin-left: 100px;margin-top: 50px;" class="start"></h2>
+    <!-- corn -->
+    <!-- go frick yourself alr muhufucca -->
+  </div>
+
+
+  <div style="margin: 0px;width:100% ;position:relative;object-fit: fill;height: fit-content;">
+
+  </div>
+  <script src="homescript.js">
+  </script>
+</body>
+
+</html>

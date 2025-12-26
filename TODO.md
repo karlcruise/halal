@@ -1,0 +1,2 @@
+- [ ] Modify homesub.html: Remove autoplay and set preload="none" for all animborder video elements
+- [ ] Modify homescript.js: Add Intersection Observer to lazy load animborder videos by setting preload="metadata" when entering viewport
