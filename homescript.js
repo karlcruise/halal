@@ -1,5 +1,5 @@
 const btn = document.getElementById('dang');
-const vid = document.getElementById('dragon')
+const vid = document.getElementById('dragon');
 const video = document.getElementById('sea');
 const video1 = document.getElementById('dive');
 const video2 = document.getElementById('burb');
