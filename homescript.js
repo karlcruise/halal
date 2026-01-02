@@ -126,10 +126,12 @@ updateText();
 function myFunction() {
   if (video.paused) {
     console.log('ldsadfas');
+    vid.play();
     video.play();
     btn.innerHTML = "Pause";
   } else {
     video.pause();
+    vid.play();
     btn.innerHTML = "Play";
   }
 }
