@@ -1,4 +1,5 @@
 const btn = document.getElementById('dang');
+const vod = document.querySelector('.gallery-title')
 const vid = document.getElementById('dragon');
 const video = document.getElementById('sea');
 const video1 = document.getElementById('dive');
@@ -126,12 +127,14 @@ updateText();
 function myFunction() {
   if (video.paused) {
     console.log('ldsadfas');
+    vod.play();
     vid.play();
     video.play();
     btn.innerHTML = "Pause";
   } else {
+    vod.pause();
     video.pause();
-    vid.play();
+    vid.pause();
     btn.innerHTML = "Play";
   }
 }
